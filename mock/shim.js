@@ -176,7 +176,7 @@
   async function 일감만들기(q) {
     var id = 새id(q.kind || 'job');
     var 바로 = ['suggest', 'translate', 'shotwhen', 'findplot', 'promptko'].indexOf(q.kind) >= 0;
-    var 판 = 바로 ? { 시작: 600, 끝: 2600 } : q.kind === 'claude' ? { 시작: 1500, 끝: 7000 } : { 시작: 2500, 끝: 9000 + Math.round(Math.random() * 5000) };
+    var 판 = 바로 ? { 시작: 300, 끝: 1500 } : { 시작: 200, 끝: 1000 };
     var j = { id: id, kind: q.kind, project: q.project || null, title: String(q.title || '').slice(0, 120), by: ME, uid: 'demo', status: 'queued', createdAt: Date.now(), spec: q.spec || {}, results: [], log: [], __m: 판 };
     try {
       if (q.kind === 'suggest') j.__결과 = [{ type: 'json', data: await 추천답(q) }];
